@@ -12,6 +12,12 @@ app.use(cors())
 
 mongoose.connect('mongodb://localhost/ktracker_db')
 
+const doctorsControllers = require('./routers/doctor_controller')
+const patientControllers = require('./routers/patient_controller')
+
+app.use('/doctors', doctorsControllers )
+app.use('/patients', patientControllers)
+
 app.get('/', (req,res)=>{
         res.json({message:"im working!"})
 })
